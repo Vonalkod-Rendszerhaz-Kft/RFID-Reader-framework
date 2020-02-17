@@ -1,0 +1,36 @@
+<xml>
+	<reader>
+		<name>ˆ¸Ûı˙È·˚Ì÷‹”’⁄…¡€Õ</name>
+		<id>1</id>
+		<location></location>
+		<description></description>
+		<config>reader1.xml</config>
+		<assembly>VRHReaderFrameWorkSick630.dll</assembly>
+		<type>VRHReaderFrameWorkSick630.clsReader</type>
+		<filterconfig>reader1filter.xml</filterconfig>
+		<filterassembly>VRHReaderFrameworkTimeBasedFilter.dll</filterassembly>
+		<filtertype>VRHReaderFrameworkTimeBasedFilter.clsFilter</filtertype>
+		
+		<controllerconfig>reader1VRHReaderFrameWorkSick630TriggerController.xml</controllerconfig>
+		<controllerassembly>VRHReaderFrameWorkSick630TriggerController.dll</controllerassembly>
+		<controllertype>VRHReaderFrameWorkSick630TriggerController.clsController</controllertype>
+		
+<!--
+		<controllerconfig>reader1VRHReaderFrameworkIF2TriggerController.xml</controllerconfig>
+		<controllerassembly>VRHReaderFrameworkIF2TriggerController.dll</controllerassembly>
+		<controllertype>VRHReaderFrameworkIF2TriggerController.clsController</controllertype>
+-->
+
+<!--
+		<controllerconfig>reader1controller.xml</controllerconfig>
+		<controllerassembly>VRHReaderFrameworkSampleController.dll</controllerassembly>
+		<controllertype>VRHReaderFrameworkSampleController.clsController</controllertype>
+-->
+
+<!--
+		<controllerconfig>reader1controller.xml</controllerconfig>
+		<controllerassembly>VRHReaderFrameWorkWCFController.dll</controllerassembly>
+		<controllertype>VRHReaderFrameWorkWCFController.clsController</controllertype>
+-->
+	</reader>
+</xml>

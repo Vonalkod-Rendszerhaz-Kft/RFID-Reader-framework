@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkWCFInterface" />
+  <xs:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkCommon" />
+  <xs:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="Read">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iReadSeconds" type="xs:int" />
+        <xs:element minOccurs="0" name="iWaitExecutionSeconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkWCFInterface" minOccurs="0" name="ReadResult" nillable="true" type="q1:ResultBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteReaderCommands">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sConfigFile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sCommandSet" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iWaitExecutionSeconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteReaderCommandsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkWCFInterface" minOccurs="0" name="ExecuteReaderCommandsResult" nillable="true" type="q2:ResultBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteReaderCommand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sCommand" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iWaitExecutionSeconds" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteReaderCommandResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkWCFInterface" minOccurs="0" name="ExecuteReaderCommandResult" nillable="true" type="q3:ResultBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkCommon" minOccurs="0" name="GetResultsResult" nillable="true" type="q4:ArrayOfclsReadResult" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResults_RID_TAGID_COUNT_RSSI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResults_RID_TAGID_COUNT_RSSIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkCommon" minOccurs="0" name="GetResults_RID_TAGID_COUNT_RSSIResult" nillable="true" type="q5:ArrayOfclsReadResult_RID_TAGID_COUNT_RSSI" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReaders">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReadersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetReadersResult" nillable="true" type="q6:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetResultRequestType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkCommon" minOccurs="0" name="eResultRequestType" type="q7:eControllerResultRequestType" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetResultRequestTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultRequestType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResultRequestTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkCommon" minOccurs="0" name="GetResultRequestTypeResult" type="q8:eControllerResultRequestType" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCycle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iCycle" type="xs:int" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCycleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCycle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCycleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCycleResult" type="xs:int" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTimeoutMode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iTimeoutMode" type="xs:int" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTimeoutModeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeoutMode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeoutModeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTimeoutModeResult" type="xs:int" />
+        <xs:element minOccurs="0" name="sError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="READGPI_IF2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iWaitExecutionSeconds" type="xs:int" />
+        <xs:element minOccurs="0" name="bInputA" type="xs:boolean" />
+        <xs:element minOccurs="0" name="bInputB" type="xs:boolean" />
+        <xs:element minOccurs="0" name="bInputC" type="xs:boolean" />
+        <xs:element minOccurs="0" name="bInputD" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="READGPI_IF2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="READGPI_IF2Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bInputA" type="xs:boolean" />
+        <xs:element minOccurs="0" name="bInputB" type="xs:boolean" />
+        <xs:element minOccurs="0" name="bInputC" type="xs:boolean" />
+        <xs:element minOccurs="0" name="bInputD" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

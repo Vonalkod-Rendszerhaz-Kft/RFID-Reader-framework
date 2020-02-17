@@ -1,0 +1,8 @@
+<xml>
+	<threads>1</threads>
+	<processor>
+		<config>IslandSystemProcessor.xml</config>
+		<assembly>IslandSystemProcessor.dll</assembly>
+		<type>IslandSystemProcessor.clsIslandSystemProcessor</type>
+	</processor>
+</xml>

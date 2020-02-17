@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AppInterface" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkWCFInterface" />
+      <xsd:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkCommon" />
+      <xsd:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAppInterface_Read_InputMessage">
+    <wsdl:part name="parameters" element="tns:Read" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_Read_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_ExecuteReaderCommands_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteReaderCommands" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_ExecuteReaderCommands_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteReaderCommandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_ExecuteReaderCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteReaderCommand" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_ExecuteReaderCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteReaderCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResults" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetResults_RID_TAGID_COUNT_RSSI_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResults_RID_TAGID_COUNT_RSSI" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetResults_RID_TAGID_COUNT_RSSI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResults_RID_TAGID_COUNT_RSSIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetReaders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReaders" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetReaders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_SetResultRequestType_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetResultRequestType" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_SetResultRequestType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetResultRequestTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetResultRequestType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultRequestType" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetResultRequestType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultRequestTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_SetCycle_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCycle" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_SetCycle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCycleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetCycle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCycle" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetCycle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCycleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_SetTimeoutMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTimeoutMode" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_SetTimeoutMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTimeoutModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetTimeoutMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeoutMode" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_GetTimeoutMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeoutModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_READGPI_IF2_InputMessage">
+    <wsdl:part name="parameters" element="tns:READGPI_IF2" />
+  </wsdl:message>
+  <wsdl:message name="IAppInterface_READGPI_IF2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:READGPI_IF2Response" />
+  </wsdl:message>
+  <wsdl:portType name="IAppInterface">
+    <wsdl:operation name="Read">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/Read" message="tns:IAppInterface_Read_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/ReadResponse" message="tns:IAppInterface_Read_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteReaderCommands">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/ExecuteReaderCommands" message="tns:IAppInterface_ExecuteReaderCommands_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/ExecuteReaderCommandsResponse" message="tns:IAppInterface_ExecuteReaderCommands_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteReaderCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/ExecuteReaderCommand" message="tns:IAppInterface_ExecuteReaderCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/ExecuteReaderCommandResponse" message="tns:IAppInterface_ExecuteReaderCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/GetResults" message="tns:IAppInterface_GetResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/GetResultsResponse" message="tns:IAppInterface_GetResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResults_RID_TAGID_COUNT_RSSI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/GetResults_RID_TAGID_COUNT_RSSI" message="tns:IAppInterface_GetResults_RID_TAGID_COUNT_RSSI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/GetResults_RID_TAGID_COUNT_RSSIResponse" message="tns:IAppInterface_GetResults_RID_TAGID_COUNT_RSSI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReaders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/GetReaders" message="tns:IAppInterface_GetReaders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/GetReadersResponse" message="tns:IAppInterface_GetReaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetResultRequestType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/SetResultRequestType" message="tns:IAppInterface_SetResultRequestType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/SetResultRequestTypeResponse" message="tns:IAppInterface_SetResultRequestType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResultRequestType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/GetResultRequestType" message="tns:IAppInterface_GetResultRequestType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/GetResultRequestTypeResponse" message="tns:IAppInterface_GetResultRequestType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCycle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/SetCycle" message="tns:IAppInterface_SetCycle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/SetCycleResponse" message="tns:IAppInterface_SetCycle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCycle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/GetCycle" message="tns:IAppInterface_GetCycle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/GetCycleResponse" message="tns:IAppInterface_GetCycle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTimeoutMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/SetTimeoutMode" message="tns:IAppInterface_SetTimeoutMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/SetTimeoutModeResponse" message="tns:IAppInterface_SetTimeoutMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeoutMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/GetTimeoutMode" message="tns:IAppInterface_GetTimeoutMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/GetTimeoutModeResponse" message="tns:IAppInterface_GetTimeoutMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="READGPI_IF2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppInterface/READGPI_IF2" message="tns:IAppInterface_READGPI_IF2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppInterface/READGPI_IF2Response" message="tns:IAppInterface_READGPI_IF2_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAppInterface" type="tns:IAppInterface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Read">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/Read" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteReaderCommands">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/ExecuteReaderCommands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteReaderCommand">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/ExecuteReaderCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResults">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/GetResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResults_RID_TAGID_COUNT_RSSI">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/GetResults_RID_TAGID_COUNT_RSSI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReaders">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/GetReaders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetResultRequestType">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/SetResultRequestType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultRequestType">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/GetResultRequestType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCycle">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/SetCycle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCycle">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/GetCycle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTimeoutMode">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/SetTimeoutMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeoutMode">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/GetTimeoutMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="READGPI_IF2">
+      <soap:operation soapAction="http://tempuri.org/IAppInterface/READGPI_IF2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AppInterface">
+    <wsdl:port name="BasicHttpBinding_IAppInterface" binding="tns:BasicHttpBinding_IAppInterface">
+      <soap:address location="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

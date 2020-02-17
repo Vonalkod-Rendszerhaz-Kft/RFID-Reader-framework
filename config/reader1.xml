@@ -1,0 +1,64 @@
+﻿<xml>
+	<valid>1</valid>
+	<ip>192.168.76.164</ip>
+	<port>2112</port>
+	<readmode>2</readmode>
+	<readpolldelay>1000</readpolldelay>
+	<polldelay>1000</polldelay>
+	<pingdelay>1000</pingdelay>
+	<maxpollresults>1000</maxpollresults>
+
+	<readparameter>
+		<name>rssi</name>
+		<value>rssi</value>
+		<result>1</result>
+		<resultonly>1</resultonly>
+	</readparameter>
+
+	<readparameter>
+		<name>ant</name>
+		<value>ant</value>
+		<result>1</result>
+		<resultonly>1</resultonly>
+	</readparameter>
+
+	<!--
+	<readparameter>
+		<name>count</name>
+		<value>count</value>
+		<result>1</result>
+		<resultonly>0</resultonly>
+	</readparameter>
+	<readparameter>
+		<name>ant</name>
+		<value>ant</value>
+		<result>1</result>
+		<resultonly>0</resultonly>
+	</readparameter>
+	<readparameter>
+		<name>rssi</name>
+		<value>rssi</value>
+		<result>1</result>
+		<resultonly>0</resultonly>
+	</readparameter>
+	<readparameter>
+		<name>int_1</name>
+		<value>int(1,1)</value>
+		<result>1</result>
+		<resultonly>0</resultonly>
+	</readparameter>
+	-->
+
+
+	<!--
+	<attrib></attrib>
+	-->	
+
+	<!--
+	<initcommand></initcommand>
+	-->
+
+
+	<initcommand>sEN eIN1 1</initcommand>
+	<initcommand>sEN eIN2 1</initcommand>	
+</xml>

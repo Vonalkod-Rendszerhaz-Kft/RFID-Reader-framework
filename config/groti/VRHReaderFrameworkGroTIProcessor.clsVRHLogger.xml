@@ -1,0 +1,3 @@
+<xml>
+	<SQLConnectString>Data Source=localhost;Initial Catalog=Grof_Log;Integrated Security=True</SQLConnectString>
+</xml>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6bb541fe-60be-4604-ab01-4f09f7f2c853" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RFIDService1.wsdl" MetadataType="Wsdl" ID="1628ebda-8b07-4cc2-af87-1bfb5e8ba754" SourceId="1" SourceUrl="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc?wsdl" />
+    <MetadataFile FileName="RFID1.disco" MetadataType="Disco" ID="995755b6-83e0-46bf-88d8-401766b6ac52" SourceId="1" SourceUrl="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc?disco" />
+    <MetadataFile FileName="RFID4.xsd" MetadataType="Schema" ID="7178c81a-498e-4f8f-93ba-1685c70200ce" SourceId="1" SourceUrl="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc?xsd=xsd3" />
+    <MetadataFile FileName="RFID41.xsd" MetadataType="Schema" ID="db47e3be-8383-40c3-84fa-5b41c6685f8d" SourceId="1" SourceUrl="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc?xsd=xsd2" />
+    <MetadataFile FileName="RFID42.xsd" MetadataType="Schema" ID="03538363-c377-4d9c-9e4f-4f3b11f2eb6e" SourceId="1" SourceUrl="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc?xsd=xsd1" />
+    <MetadataFile FileName="RFID43.xsd" MetadataType="Schema" ID="6bcdfb4b-3c62-4510-b67f-6ae0bf8d268b" SourceId="1" SourceUrl="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

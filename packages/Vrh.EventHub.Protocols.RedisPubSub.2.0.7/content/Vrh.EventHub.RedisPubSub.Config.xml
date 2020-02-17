@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Vrh.EventHub.RedisPubSub>
+  <RedisConnection>localhost</RedisConnection>
+  <ChannelTimeout>00:00:00.2</ChannelTimeout>
+</Vrh.EventHub.RedisPubSub>

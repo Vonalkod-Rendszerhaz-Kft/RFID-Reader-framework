@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkCommon" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VRHReaderFrameworkCommon" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/VRHReaderFrameworkWCFInterface/AppInterface/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfclsReadResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsReadResult" nillable="true" type="tns:clsReadResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsReadResult" nillable="true" type="tns:ArrayOfclsReadResult" />
+  <xs:complexType name="clsReadResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="colSubResults" nillable="true" type="tns:ArrayOfclsReadSubResult" />
+      <xs:element minOccurs="0" name="dtRead" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="eAppProcessingStatus" type="tns:eReadResultProcessingStatus" />
+      <xs:element minOccurs="0" name="eResultProcessingStatus" type="tns:eReadResultProcessingStatus" />
+      <xs:element minOccurs="0" name="eResultType" type="tns:eReadResultType" />
+      <xs:element minOccurs="0" name="iViewedState" type="xs:int" />
+      <xs:element minOccurs="0" name="oReaderThreadConfig" nillable="true" type="tns:clsReaderThreadConfig" />
+      <xs:element minOccurs="0" name="sOriginalResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="uid" type="ser:guid" />
+      <xs:element minOccurs="0" name="uidAction" type="ser:guid" />
+      <xs:element minOccurs="0" name="uidProcessor" type="ser:guid" />
+      <xs:element minOccurs="0" name="uidReader" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsReadResult" nillable="true" type="tns:clsReadResult" />
+  <xs:complexType name="ArrayOfclsReadSubResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsReadSubResult" nillable="true" type="tns:clsReadSubResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsReadSubResult" nillable="true" type="tns:ArrayOfclsReadSubResult" />
+  <xs:complexType name="clsReadSubResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsReadSubResult" nillable="true" type="tns:clsReadSubResult" />
+  <xs:simpleType name="eReadResultProcessingStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotProcessed" />
+      <xs:enumeration value="Processing" />
+      <xs:enumeration value="Processed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="eReadResultProcessingStatus" nillable="true" type="tns:eReadResultProcessingStatus" />
+  <xs:simpleType name="eReadResultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Data" />
+      <xs:enumeration value="Failure" />
+      <xs:enumeration value="Event" />
+      <xs:enumeration value="ActionResult" />
+      <xs:enumeration value="DataEvent" />
+      <xs:enumeration value="Log" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="eReadResultType" nillable="true" type="tns:eReadResultType" />
+  <xs:complexType name="clsReaderThreadConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="assembly" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="config" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="controllerassembly" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="controllerconfig" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="controllertype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="filterassembly" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="filterconfig" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="filtertype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="readerip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsReaderThreadConfig" nillable="true" type="tns:clsReaderThreadConfig" />
+  <xs:complexType name="ArrayOfclsReadResult_RID_TAGID_COUNT_RSSI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsReadResult_RID_TAGID_COUNT_RSSI" nillable="true" type="tns:clsReadResult_RID_TAGID_COUNT_RSSI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsReadResult_RID_TAGID_COUNT_RSSI" nillable="true" type="tns:ArrayOfclsReadResult_RID_TAGID_COUNT_RSSI" />
+  <xs:complexType name="clsReadResult_RID_TAGID_COUNT_RSSI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dRssi" type="xs:double" />
+      <xs:element minOccurs="0" name="eResultType" type="tns:eReadResultType" />
+      <xs:element minOccurs="0" name="iCount" type="xs:int" />
+      <xs:element minOccurs="0" name="sReaderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sTagId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsReadResult_RID_TAGID_COUNT_RSSI" nillable="true" type="tns:clsReadResult_RID_TAGID_COUNT_RSSI" />
+  <xs:simpleType name="eControllerResultRequestType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoResult" />
+      <xs:enumeration value="Unfiltered" />
+      <xs:enumeration value="Filtered" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="eControllerResultRequestType" nillable="true" type="tns:eControllerResultRequestType" />
+</xs:schema>

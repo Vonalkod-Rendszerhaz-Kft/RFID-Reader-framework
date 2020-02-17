@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Log4Pro.WCF.RFID" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Log4Pro.WCF.RFID" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfReadedTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReadedTag" nillable="true" type="tns:ReadedTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReadedTag" nillable="true" type="tns:ArrayOfReadedTag" />
+  <xs:complexType name="ReadedTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RSSI" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="TAGID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="readedCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReadedTag" nillable="true" type="tns:ReadedTag" />
+</xs:schema>

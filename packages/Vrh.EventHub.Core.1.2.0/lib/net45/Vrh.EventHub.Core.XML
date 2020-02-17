@@ -1,0 +1,629 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vrh.EventHub.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Vrh.EventHub.Core.ChannelRegister">
+            <summary>
+            Nyilvántart egy eventhub csatornát
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.ChannelRegister.CreateChannel``1(System.String)">
+            <summary>
+            Static channel factory (generic)
+            </summary>
+            <typeparam name="TChannel">A csatorna típusa</typeparam>
+            <param name="id">csatorna azonosítója</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vrh.EventHub.Core.ChannelRegister.#ctor(System.String,Vrh.EventHub.Core.BaseChannel)">
+            <summary>
+            ChannelRegister
+            </summary>
+            <param name="id">csatorna azonosítója</param>
+            <param name="channel">Csatorna példány</param>
+        </member>
+        <member name="P:Vrh.EventHub.Core.ChannelRegister.Id">
+            <summary>
+            Csatorna azonosító
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.ChannelRegister.Channel">
+            <summary>
+            Csatorna példány
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.BaseChannel">
+            <summary>
+            Alap csatorna implementáció
+            Az EventHub megoldásban használható konkrét csatorna implementzációknak ebből kell származniuk!
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.BaseChannel.Send(Vrh.EventHub.Core.EventHubMessage)">
+            <summary>
+            Üzenetküldés a csatornán
+                Konkrét csatorna implementációban mindig felülírandó,
+                az adott csatornának megfelelő konkrét üzenetküldés implementációjával!!! 
+            </summary>
+            <param name="message">üzenet</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.BaseChannel.InitializeChannelInfrastructure">
+            <summary>
+            Inicializálja a channel infrastruktúráját, 
+                a konkrét implementácoiója függ a konkrét csatorna megvalósítástól
+                A függvény hívását követően azonban az üzenettovábító infrastruktúrának maradéktalanul müködőképesnek kell lennie (startup)
+            A csatorna megvalósításban a Core visszahhívási delegate mentéséhez mindig meg kellhívni a base-ben lévő implementácót!!! (base.InitializeChannelInfrastructure(eventHubCoreInputMessageHandler))
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.BaseChannel.HandleInputMessage(Vrh.EventHub.Core.EventHubMessage)">
+            <summary>
+            A beérkező üzenetek kezelője
+            Ez a metódus gondoskodik róla, hogy meghívja az érketzett üzenethez tartozó Handlert
+            Ha nincs várt visszatérési érték (a hívandó handler result-ja void), akkor aszinkronhívja
+            Ha van várt visszatérési érték (a hívandó handler result-ja nem void), akkor szinkron hívhja, 
+                és a kapott választ elküldi a csatornára
+            </summary>
+            <param name="msg">EventHub üzenet</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.BaseChannel.GetChannelTimout">
+            <summary>
+            Csatorna timoutja (konkrét csatorna implementáción ovverride-olható)
+            </summary>
+            <returns>timeout</returns>
+        </member>
+        <member name="P:Vrh.EventHub.Core.BaseChannel.ChannelId">
+            <summary>
+            Csatorna azonosító
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.BaseChannel.Handlers">
+            <summary>
+            Registrált üzenetkezelők listája
+             Üzenettovábbításhoz innen kell előszedni a handler delegate referenciát, amit hívni kell.
+             A deleget referencia kikeresésének idejére lockkolni kell! (lock(_handlers) { ... }) 
+            Alapvetően az EventHub core keret és a BaseChannel kezeli!!!!
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.BaseChannel.CallWaits">
+            <summary>
+            Regisztrált visszahívási szemaforok listája
+            </summary>
+        </member>
+        <member name="F:Vrh.EventHub.Core.BaseChannel._coreInputMessageHandler">
+            <summary>
+            A bejövő üzeneteket kezelő metodus referenciája
+            </summary>
+        </member>
+        <member name="F:Vrh.EventHub.Core.BaseChannel.disposedValue">
+            <summary>
+            To detect redundant calls
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.BaseChannel.Dispose(System.Boolean)">
+            <summary>
+            Leszármazottban felülírandó, és el kell végezni a csatorna specifikus clean-t, 
+                de a base.Dispose()-t mindig meg kell hívni a végén!!!
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.BaseChannel.Dispose">
+            <summary>
+            This code added to correctly implement the disposable pattern.
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.HandlerRegister">
+            <summary>
+            Handler nyilvántartására szolgáló osztály
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.HandlerRegister.RegistHandler``1(System.Action{``0})">
+            <summary>
+            Gyártó függvény, olyan handler regisztrációjához, 
+                amelynek nincs vissaztérési értéke és egy adott típusú beérkező üzenetet kezel
+            Aszinkron, (feltehetően visszajelzés nélküli) üzenetfeldolgozás implementálásához
+            </summary>
+            <typeparam name="TMessage">Üzenet típus, melyre a kezelő kötve van</typeparam>
+            <param name="handler">Üzenet kezelő metódus referencia</param>
+            <returns>Handler nyilvántartó példány</returns>
+        </member>
+        <member name="M:Vrh.EventHub.Core.HandlerRegister.RegistHandler``2(System.Action{Vrh.EventHub.Core.Request{``0,``1}})">
+            <summary>
+            Gyártó függvény, olyan handler regisztrációjához, 
+                amelynek nincs vissaztérési értéke és egy beérkező Request kezel
+            Aszinkron Request/Response logika implementálásához
+            </summary>
+            <typeparam name="TRequest">A kérés típusa</typeparam>
+            <typeparam name="TResponse">A kéréshez tartozó válasz típusa</typeparam>
+            <param name="handler">Metódus refernecia amely kezeli az érkezó üzenetet</param>
+            <returns>Handler nyilvántartó példány</returns>
+        </member>
+        <member name="M:Vrh.EventHub.Core.HandlerRegister.RegistHandler``1(System.Action{Vrh.EventHub.Core.Response{``0}})">
+            <summary>
+            Gyártő függvény response kezeléshez 
+                (ilyen handler regisztrációk csak aszinkron request-response megavlósításoknál léteznek
+                ezeknek a handlereknek sosincs visszatérési értékük)
+            </summary>
+            <typeparam name="TResponse">Kérésre adott válasz</typeparam>
+            <param name="handler">Az üzenet kezelő handler (metódus)</param>
+            <returns>Legyártott handler regisuzter példány, ami nyilvántartja ezt az üzenetkeezlő regisztrációt</returns>
+        </member>
+        <member name="M:Vrh.EventHub.Core.HandlerRegister.RegistHandler``2(System.Func{Vrh.EventHub.Core.Request{``0,``1},Vrh.EventHub.Core.Response{``1}})">
+            <summary>
+            Gyártó függvény, olyan handler regisztrációjához, amelyiknek van vissaztérési értéke
+            Szinkron hívások (Call) kezelésre
+            </summary>
+            <typeparam name="TRequest">Típus, amelyhez a handler tartozik</typeparam>
+            <typeparam name="TResponse">Típus, amelyel a handler visszatér</typeparam>
+            <param name="handler">Metódus refernecia amely kezeli az érkezó üzenetet</param>
+            <returns>Handler nyilvántartó példány</returns>
+        </member>
+        <member name="M:Vrh.EventHub.Core.HandlerRegister.#ctor(System.Delegate,System.Type)">
+            <summary>
+            private constructor
+            Ezt a típust csak a gyártófügvényén át lehet kivülről példányosítani!!!
+            </summary>
+            <param name="handler">Metódus refernecia amely kezeli az érkezó üzenetet</param>
+            <param name="handedMessageType">Kezelt üzenet típus</param>
+        </member>
+        <member name="P:Vrh.EventHub.Core.HandlerRegister.MessageType">
+            <summary>
+            Üzenet típus, melyet kezel a handler
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.HandlerRegister.ReturnType">
+            <summary>
+            A handler visszatérési típusa
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.HandlerRegister.Handler">
+            <summary>
+            Metódus refernecia amely kezeli az érkezó üzenetet
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.EventHubMessage">
+            <summary>
+            Eventhub channel objektum, amelyben az üzenetek közlekednek az evenethub-on
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.EventHubMessage.MessageType">
+            <summary>
+            Üzenet típusa
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.EventHubMessage.ReturnType">
+            <summary>
+            Az üzenet feldolgozás visszatérési típusa
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.EventHubMessage.ConcrateMessage">
+            <summary>
+            Maga az üzenet (JSON-szerializált string)
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.Request`2">
+            <summary>
+            Egy olyan üzenet, amelre a feldolgozó oldalnak választ kell adnia
+            </summary>
+            <typeparam name="TRequest">Kérés típusa</typeparam>
+            <typeparam name="TResponse">Válasz típusa</typeparam>
+        </member>
+        <member name="P:Vrh.EventHub.Core.Request`2.Id">
+            <summary>
+            Üzenet azonosító
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.Request`2.RequestContent">
+            <summary>
+            Maga az üzenet
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.Request`2.MyResponse">
+            <summary>
+            Visszaad egy üres (kitöltetlen) response üzenetet. Amely ehhez az üzenethez (Request) tartozik
+                (A tipushellyeség elősegítésére és az üzenetpárosításra használandó fel!)
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.Response`1">
+            <summary>
+            Válasz üzenet egy Eventhub üzenetre
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Vrh.EventHub.Core.Response`1.ResponseFactory(System.String)">
+            <summary>
+            Internal gyártó függvény
+                A Request típus használja, hogy a GetMyResponse visszaadja a kéréshez tartozó választ 
+            </summary>
+            <param name="requestId">kérés azonosító</param>
+            <returns></returns>
+        </member>
+        <member name="P:Vrh.EventHub.Core.Response`1.ResponseContent">
+            <summary>
+            Maga az üzenet
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.Response`1.Ok">
+            <summary>
+            Sikeres a válasz, vagy hiba lépett fel? 
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.Response`1.Exception">
+            <summary>
+            Hiba esetén kell tartalmazni egy Exceprtion-t, vagy egy Exception lezséármazottat
+            Ha nincs hiba akkor kötelezően null
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.Response`1.RequestId">
+            <summary>
+            Üzenet azonosító (a request-tel párosítja)
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.MockChannel">
+            <summary>
+            Unit teszthez használt mock csatorna implementáció, csak alaklamazáson (alkalmazástéren) belül működik!!!
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.MockChannel.Send(Vrh.EventHub.Core.EventHubMessage)">
+            <summary>
+            Send (Aszinkron) üzenetküldés csatornaimplementáció
+            </summary>
+            <param name="message">üzenet</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.MockChannel.InitializeChannelInfrastructure">
+            <summary>
+            Inicializálja a csatorna infrastruktúráját
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.MockChannel.HandleInputMessages(System.String)">
+            <summary>
+            Üzenet érkezik  acsatornára
+            </summary>
+            <param name="message">Érkezett üzenet (json serializált )</param>
+        </member>
+        <member name="T:Vrh.EventHub.Core.RegisteredCallWait">
+            <summary>
+            Egy Call hívással elküldött request válaszára való várakozást reprezentáló objektum
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.RegisteredCallWait.Id">
+            <summary>
+            Azonosító, amely az adott várakozáshoz köti
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.RegisteredCallWait.Response">
+            <summary>
+            Ide kell elhelyezni a kapott választ (A semafor signálása előtt!)
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.RegisteredCallWait.WaitResponseSemaforSlim">
+            <summary>
+            Semafor, melyet signálni kell hogy a küldő processz várakozása megszakadjon, és kivegye majd visszadja a kapott választ
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.EventHubCoreConfig">
+            <summary>
+            Az EventHub konfigurációját hordozó (kiolvasó) típus
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCoreConfig.#ctor(System.String)">
+            <summary>
+            Constructor 
+            </summary>
+            <param name="parameterFile">XML fájl aminek a feldolgozására az osztály készül</param>
+        </member>
+        <member name="P:Vrh.EventHub.Core.EventHubCoreConfig.ThrowEventHubCoreExceptions">
+            <summary>
+            Az eventhub dobja e az EventHubException-öket (true), vagy nyelje le őket (false)
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.EventHubCoreConfig.Me">
+            <summary>
+            A konfigurációs XML leírása
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.EventHubCoreConfig.Me.ThrowEventHubCoreExceptionsElement">
+            <summary>
+            ThrowEventHubCoreExceptions XML element
+            </summary>
+        </member>
+        <member name="F:Vrh.EventHub.Core.EventHubCoreConfig.Me.ThrowEventHubCoreExceptionsElement.NAME">
+            <summary>
+            A lehetséges Redis connection-öket felsoroló XML element neve
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.EventHubCore">
+            <summary>
+            Tipusvezérelt esményközvetítő szolgáltatás, mely tetszőleges csatornaimplementáció felett tud működni
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.#cctor">
+            <summary>
+            Static constructor
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.InitielizeChannel``1(System.String)">
+            <summary>
+            Inicializálja a megadott csatornát
+                Segítségével kiemelhető a csatorna infrastruktúra kreállási költslége ami így:
+                    - nem az első tényleges művekletet fogja terhelni
+                    - Redukáklja az erősen túlterhelt párhuzamos környezetben való működést terhelő problémákat 
+                        (mint pl. a redis pub/sub feliratkozásoknál feléppő timeoutok) 
+            </summary>
+            <typeparam name="TChannel">A csatorna típusa</typeparam>
+            <param name="channelId">csatorna azonosító</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.Send``2(System.String,``1)">
+            <summary>
+            Aszinkron üzenetküldés!
+                Olyan üzenetek elküldésére használandó, amelyre a küldő oldal semmiylen módon nem vár választ. 
+            A küldés során keletkező exceptiön-ök (Pl. közvetitő infrastruktúra hibái) felmennek a hívási helyre. 
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa</typeparam>
+            <typeparam name="TMessage">Üzenet típusa</typeparam>
+            <param name="channelId">Csatorna azonosító</param>
+            <param name="message">üzenet</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.SendAsync``2(System.String,``1)">
+            <summary>
+            Teljesen aszinkron üzenetküldés, amely során az átviteli hibák is elnyelődnek!!! 
+                Cserébe nagyon magas párhuzamos teljesítményre képes! És a hívás oldali költsége elhanyagolható.
+                Olyan üzenetek elküldésére használandó, amelyre a küldő oldal semmiylen módon nem vár választ.
+                Beleértev azt, is, hogy nem akar róla tudni, hogy maga  aküldés sikeres-e.
+                Pl.: logolásra, monitoring kliensek müködtetésére használható fel jól.
+                A küldés során keletkező exceptiön-ök (Pl. közvetitő infrastruktúra hibái) 
+                mindig elvesznek a hivó szemszögéből. 
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa</typeparam>
+            <typeparam name="TMessage">Üzenet típusa</typeparam>
+            <param name="channelId">Csatorna azonosító</param>
+            <param name="message">üzenet</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.Send``2(System.String,Vrh.EventHub.Core.Response{``1})">
+            <summary>
+            Aszinkron Response üzenetküldés: Válasz oldal -> Elküld egy Response-t 
+            A küldés során keletkező exceptiön-ök (Pl. közvetitő infrastruktúra hibái) felmennek a hívási helyre. 
+            </summary>
+            <typeparam name="TChannel">Csatorna implementáció típusa</typeparam>
+            <typeparam name="TResponse">Kérés típusa</typeparam>        
+            <param name="channelId">Csatorna azonosító, ahová küldi</param>
+            <param name="response">Kérés üzenet</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.Call``3(System.String,``1,System.Nullable{System.TimeSpan})">
+            <summary>
+            Szinkron üzenetküldés!!! Mindig megvárja a választ!!! 
+            A küldés során keletkező exceptiön-ök (Pl. közvetitő infrastruktúra hibái) felmennek a hívási helyre. 
+            </summary>
+            <typeparam name="TChannel">Csatorna implementáció típusa</typeparam>
+            <typeparam name="TRequest">Küldendő kérés típus</typeparam>
+            <typeparam name="TResponse">Várt válasz típusa</typeparam>
+            <param name="channelId">Csatorna azonosító</param>
+            <param name="request">Kérés példány</param>
+            <param name="timeOut">Használt timout, ha az EventHub konfigurált alapértelmezésétől eltérjen</param>
+            <returns>A hívás visszatérési típusa szerinti objektumpéldány</returns>        
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.RegisterHandler``2(System.String,System.Action{``1},System.Boolean)">
+            <summary>
+            Regisztrál egy olyan üzenetketzelőt, 
+                amelynek nincs vissaztérési értéke és egy adott típusú beérkező üzenetet kezel
+            Aszinkron, (feltehetően visszajelzés nélküli) üzenetfeldolgozás implementálásához
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa, emely felett az üzenetkezelő működik</typeparam>
+            <typeparam name="TMessage">Üzenet típusa, emylet ez a kezelő dolgoz fel</typeparam>
+            <param name="channelId">Csatorna azonosító: ezen a csatornán érkező üzeneteket dolgozza fel a kezelő</param>
+            <param name="handler">Metódus referencia, ez a metódus végzi a tényleges feldolgozást --> void X(TMessage)</param>
+            <param name="overrideHandler">Segítségével előítrható, hogy regisztrálja felül a végpontban (alkalmazástérben) meglévő kezelőt</param>                
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.RegisterHandler``3(System.String,System.Action{Vrh.EventHub.Core.Request{``1,``2}},System.Boolean)">
+            <summary>
+            Registrál a megadott csatorna fölött egy Requesteket fogadó üzenetkezelőt, 
+            melynek nincs visszatérési értéke 
+            Aszinkron Request/Response implementációkhoz a kérések fogadó oldalán
+            </summary>
+            <typeparam name="TChannel">Csatorna típus implementáció</typeparam>
+            <typeparam name="TRequest">Kérés típusa</typeparam>
+            <typeparam name="TResponse">Válasz típusa</typeparam>
+            <param name="channelId">Csatorna azonosító</param>
+            <param name="handler">üzenetkezelő --> void X(TRequest)</param>
+            <param name="overrideHandler">Segítségével előítrható, hogy regisztrálja felül a végpontban (alkalmazástérben) meglévő kezelőt</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.RegisterHandler``2(System.String,System.Action{Vrh.EventHub.Core.Response{``1}},System.Boolean)">
+            <summary>
+            Regisztrál egy kifejezetten response üzeneteket kezelő handlert 
+                (nincs visszatérési értéke)
+            Aszinkron Request/Response implementációkhoz a kéréseket (request) küldő oldalán, 
+                a válaszok (response) fogadásának céljából
+            </summary>
+            <typeparam name="TChannel">Csatorna típus</typeparam>
+            <typeparam name="TResponse">Válasz típusa</typeparam>
+            <param name="channelId">Csatorna azonosító</param>
+            <param name="handler">Üzenet kezelő --> void X(Response/TResponse/) </param>
+            <param name="overrideHandler">Segítségével előítrható, hogy regisztrálja felül a végpontban (alkalmazástérben) meglévő kezelőt</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.RegisterHandler``3(System.String,System.Func{Vrh.EventHub.Core.Request{``1,``2},Vrh.EventHub.Core.Response{``2}})">
+            <summary>
+            Registrál a megadott csatorna fölött egy üzenetkezelőt, amelyik egy adott típusú kérést kezel, 
+                és egy adott típusú (ehhez a kéréshez tartozó) válaszszal tér vissza.
+            Az ilyen üzenetkezelők a Call hívások fogadó oldalán kerülnek meghívásra!
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa</typeparam>
+            <typeparam name="TRequest">Kérés típusa</typeparam>
+            <typeparam name="TResponse">Válasz típusa</typeparam>
+            <param name="channelId">Csatorna azonosító</param>
+            <param name="handler">Üzenet kezelő --> Tesponse/TResponse/ X(Request/TRequest, TResponse/) </param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.DropHandler``2(System.String,System.Action{``1})">
+            <summary>
+            Kiregisztrálja (eldobja) a megadott csatornán az üzenettípushoz regisztrált handlert
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa</typeparam>
+            <typeparam name="TMessage">Üzenet típusa</typeparam>
+            <param name="channelId">csatorna azonosító (erről a csatornáról távolítja el a kezelőt)</param>
+            <param name="handler">az eltávolítandő kezelő</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.DropHandler``3(System.String,System.Action{Vrh.EventHub.Core.Request{``1,``2}})">
+            <summary>
+            Kiregisztrálja (eldobja) a megadott csatornán az üzenettípushoz regisztrált handlert
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa</typeparam>
+            <typeparam name="TRequest">Kérés típusa</typeparam>
+            <typeparam name="TResponse">Válasz típusa</typeparam>
+            <param name="channelId">csatorna azonosító</param>
+            <param name="handler">üzenet kezelő metodus, amit kiregisztrál</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.DropHandler``2(System.String,System.Action{Vrh.EventHub.Core.Response{``1}})">
+            <summary>
+            Kiregisztrálja (eldobja) a megadott csatornán az üzenettípushoz regisztrált handlert
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa</typeparam>
+            <typeparam name="TResponse">Üzenet típusa</typeparam>
+            <param name="channelId">csatorna azonosító</param>
+            <param name="handler">üzenet kezelő metodus, amit kiregisztrál</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.DropHandler``3(System.String,System.Func{Vrh.EventHub.Core.Request{``1,``2},Vrh.EventHub.Core.Response{``2}})">
+            <summary>
+            Kiregisztrálja (eldobja) a megadott csatornán az üzenettípushoz regisztrált handlert
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa</typeparam>
+            <typeparam name="TRequest">Kérés típusa</typeparam>
+            <typeparam name="TResponse">Válasz típusa</typeparam>
+            <param name="channelId">csatorna azonosító</param>
+            <param name="handler">üzenet kezelő metodus, amit kiregisztrál</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.DropChannel``1(System.String)">
+            <summary>
+            Az összes handlert kiregisztrálja + megszünteti a csatornát
+            </summary>
+            <param name="channelId">Csatorna, amit megszüntetünk.</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.Send``3(System.String,Vrh.EventHub.Core.Request{``1,``2})">
+            <summary>
+            Aszinkron Request üzenetküldés: Kérés oldal -> Elküld egy Request-et 
+            A küldés során keletkező exceptiön-ök (Pl. közvetitő infrastruktúra hibái) az EventHub 
+                keret ThrowException beállításától függően mennek vagy nem mennek fel a hívási helyre. 
+            </summary>
+            <typeparam name="TChannel">Csatorna implementáció típusa</typeparam>
+            <typeparam name="TRequest">Kérés típusa</typeparam>
+            <typeparam name="TResponse">Kérés típusa</typeparam>        
+            <param name="channelId">Csatorna azonosító, ahová küldi</param>
+            <param name="request">Kérés üzenet</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.SafeCall``3(Vrh.EventHub.Core.ChannelRegister,Vrh.EventHub.Core.RegisteredCallWait,Vrh.EventHub.Core.Request{``1,``2},System.Nullable{System.TimeSpan})">
+            <summary>
+            Szinkron üzenetküldés/válasz fogadás (Call) megvalósítása taskpool felett is jól működő szemaforokkal
+                (Küldő oldal)
+            </summary>
+            <typeparam name="TChannel">Használt csatorna típusa</typeparam>
+            <typeparam name="TRequest">Kérés típus</typeparam>
+            <typeparam name="TResponse">Válasz típus</typeparam>
+            <param name="registeredChannel">referencia csatorna regisztráció példányra (a híváshoz tartozó callwaitek kezeléséhez)</param>
+            <param name="callWait">referencia a híváshoz tartozó callwait-re</param>
+            <param name="requestMessage">kérés üzenet, amit küldünk</param>
+            <param name="timeOut">a használt timeout</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.EventHubSend``2(System.String,System.Object,System.Boolean)">
+            <summary>
+            Eventhub üzenet elküldése adott csatorna implementáción
+            </summary>
+            <typeparam name="TChannel">Csatorna implementáció típusa</typeparam>
+            <typeparam name="TMessage">Küldendő üzenet típus</typeparam>
+            <param name="channelId">Csatorna azonosító, ahová küldi</param>
+            <param name="message">Üzenet</param>
+            <param name="noReturn">Jelzi, hogy nem várunk visszatérési értéket a hívástól</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.RegisterChannel``1(System.String)">
+            <summary>
+            Regisztrálja a csatornát
+            </summary>
+            <typeparam name="TChannel">Létező csatorna implementáció</typeparam>
+            <param name="channelId">Csatorna azonosító</param>
+            <returns>Regisztrált csatorna</returns>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.RegisterHandler``1(System.String,Vrh.EventHub.Core.HandlerRegister,System.Boolean)">
+            <summary>
+            Registrál egy message handlert az eventhubon a megadott csatornához
+            </summary>
+            <typeparam name="TChannel">A csatorna típusa, main a handler működik</typeparam>
+            <param name="channelId">csatorna azonosítója</param>
+            <param name="handlerRegister">üzenetkezelő regisztrációs objektum</param>
+            <param name="overrideHandler">jelzi, hogy ha létezik handler akkor az felülírandó-e (false), 
+                vagy párhozamosan bejegyzünk egy handlert ugyanarra a kontraktra az alkalmazástérben (true)</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubCore.DropHandler``1(System.String,Vrh.EventHub.Core.HandlerRegister)">
+            <summary>
+            Kiregisztrál egy handlert az eventhubon a megadott csatornához
+            </summary>
+            <typeparam name="TChannel">Csatorna típusa</typeparam>
+            <param name="channelId">Csatorna azonosítója</param>
+            <param name="handlerRegister">kiregisztráélandó handler</param>
+        </member>
+        <member name="F:Vrh.EventHub.Core.EventHubCore._channels">
+            <summary>
+            Csatornák listája
+            </summary>
+        </member>
+        <member name="F:Vrh.EventHub.Core.EventHubCore._lazyEventHubCoreConfiguration">
+            <summary>
+            EventHub core beállításai
+            </summary>
+        </member>
+        <member name="P:Vrh.EventHub.Core.EventHubCore.EventHubCoreConfiguration">
+            <summary>
+            Az eventhub konfigurációja
+            </summary>
+        </member>
+        <member name="F:Vrh.EventHub.Core.EventHubCore.MODUL_PREFIX">
+            <summary>
+            Modul prefix
+            </summary>
+        </member>
+        <member name="T:Vrh.EventHub.Core.EventHubException">
+            <summary>
+            EventHub exception base class (A beállításoktól függőne lenyeli, vagy dobja az ilyen exception-öket)
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubException.ThrowOrNo(Vrh.EventHub.Core.EventHubException,System.Type,System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean,System.String,System.Int32)">
+            <summary>
+            A beállításokanak megfelelően exceptiont dob, vagy logolja  ahibát
+            </summary>
+            <param name="ex">Kivétel</param>
+            <param name="source">forrás típus</param>
+            <param name="data"></param>
+            <param name="warningOnly">Csak warningként logolja</param>
+            <param name="caller">hívó metódus</param>
+            <param name="line">hivás sora</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.EventHubException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">hibaüzenet</param>
+            <param name="innerExcception">eredeti kivétel</param>
+        </member>
+        <member name="T:Vrh.EventHub.Core.FatalEventHubException">
+            <summary>
+            Kritikus event Hub exception (ezt mindig továbbdobja)
+            </summary>
+        </member>
+        <member name="M:Vrh.EventHub.Core.FatalEventHubException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">hibaüzenet</param>
+        </member>
+        <member name="M:Vrh.EventHub.Core.FatalEventHubException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Hibaüzenet</param>
+            <param name="innerException">eredeti kivétel</param>
+        </member>
+    </members>
+</doc>

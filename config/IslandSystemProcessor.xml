@@ -1,0 +1,15 @@
+<xml>
+	<iDataOffset>4</iDataOffset>
+
+    <iPackageTimeoutSec>60</iPackageTimeoutSec>
+
+    <sRSSIValueName>rssi</sRSSIValueName>
+
+    <sANTValueName>ant</sANTValueName>
+
+	<UserName>reader</UserName>
+	
+    <Password>Rfid123$</Password>
+
+	
+</xml>

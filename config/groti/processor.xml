@@ -1,0 +1,13 @@
+<xml>
+	<threads>1</threads>
+	<processor>
+		<config>VRHReaderFrameworkGroTIProcessor.clsGateKeeper.xml</config>
+		<assembly>VRHReaderFrameworkGroTIProcessor.dll</assembly>
+		<type>VRHReaderFrameworkGroTIProcessor.clsGateKeeper</type>
+	</processor>
+	<processor>
+		<config>VRHReaderFrameworkGroTIProcessor.clsVRHLogger.xml</config>
+		<assembly>VRHReaderFrameworkGroTIProcessor.dll</assembly>
+		<type>VRHReaderFrameworkGroTIProcessor.clsVRHLogger</type>
+	</processor>
+</xml>

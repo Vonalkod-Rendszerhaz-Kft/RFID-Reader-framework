@@ -1,0 +1,14 @@
+<xml>
+	<reader>
+		<name>Reader 1.</name>
+		<id>1</id>
+		<location></location>
+		<description></description>
+		<config>reader1.xml</config>
+		<assembly>VRHReaderFrameworkIF2.dll</assembly>
+		<type>VRHReaderFrameworkIF2.clsReader</type>
+		<filterconfig>reader1filter.xml</filterconfig>
+		<filterassembly>VRHReaderFrameworkTimeBasedFilter.dll</filterassembly>
+		<filtertype>VRHReaderFrameworkTimeBasedFilter.clsFilter</filtertype>
+	</reader>
+</xml>

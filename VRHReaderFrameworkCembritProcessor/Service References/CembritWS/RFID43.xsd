@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Log4Pro.WCF.RFID" />
+  <xs:import schemaLocation="http://192.168.77.11/Log4Pro_CEMBRIT/WCF/RFID.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Log4Pro.WCF.PDA.Results" />
+  <xs:element name="TagsReaded">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Log4Pro.WCF.RFID" minOccurs="0" name="ReadedTags" nillable="true" type="q1:ArrayOfReadedTag" />
+        <xs:element minOccurs="0" name="ReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Errormessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TagsReadedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Log4Pro.WCF.PDA.Results" minOccurs="0" name="TagsReadedResult" nillable="true" type="q2:ResultBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InputChanged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReaderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InputID" type="xs:int" />
+        <xs:element minOccurs="0" name="InputState" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Errormessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InputChangedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Log4Pro.WCF.PDA.Results" minOccurs="0" name="InputChangedResult" nillable="true" type="q3:ResultBase" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

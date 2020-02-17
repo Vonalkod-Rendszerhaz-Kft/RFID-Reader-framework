@@ -1,0 +1,47 @@
+<xml>
+	<SQLConnectString>Data Source=localhost;Initial Catalog=Grof;Integrated Security=True</SQLConnectString>
+
+	<idconverter>
+		<id>1</id>
+		<antenna>1</antenna>
+		<target>1</target>
+	</idconverter>
+	<idconverter>
+		<id>1</id>
+		<antenna>2</antenna>
+		<target>3</target>
+	</idconverter>
+	<idconverter>
+		<id>2</id>
+		<antenna></antenna>
+		<target>1</target>
+	</idconverter>
+
+	<successcommand>
+		<command>WRITEGPO 1 ON</command>
+		<delaysec>0</delaysec>
+	</successcommand>
+	<successcommand>
+		<command>WRITEGPO 1 OFF</command>
+		<delaysec>30</delaysec>
+	</successcommand>
+
+	<warningcommand>
+		<command>WRITEGPO 2 ON</command>
+		<delaysec>0</delaysec>
+	</warningcommand>
+	<warningcommand>
+		<command>WRITEGPO 2 OFF</command>
+		<delaysec>30</delaysec>
+	</warningcommand>
+
+	<failurecommand>
+		<command>WRITEGPO 3 ON</command>
+		<delaysec>0</delaysec>
+	</failurecommand>
+	<failurecommand>
+		<command>WRITEGPO 3 OFF</command>
+		<delaysec>30</delaysec>
+	</failurecommand>
+
+</xml>
