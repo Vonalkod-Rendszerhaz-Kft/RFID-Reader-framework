@@ -1,0 +1,6 @@
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkGroTIProcessor.dll
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkGroTIProcessor.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkGroTIProcessor\obj\Release\VRHReaderFrameworkGroTIProcessor.csprojAssemblyReference.cache
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkGroTIProcessor\obj\Release\VRHReaderFrameworkGroTIProcessor.csproj.CopyComplete
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkGroTIProcessor\obj\Release\VRHReaderFrameworkGroTIProcessor.dll
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkGroTIProcessor\obj\Release\VRHReaderFrameworkGroTIProcessor.pdb

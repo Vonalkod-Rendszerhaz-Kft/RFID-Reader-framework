@@ -21,17 +21,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRHReaderFrameworkService",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRHReaderFrameworkGroTIProcessor", "VRHReaderFrameworkGroTIProcessor\VRHReaderFrameworkGroTIProcessor.csproj", "{9FC4C63C-F141-4562-8525-2EB730ED4728}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configs", "configs", "{DC0B3D08-EFB6-4E57-A5B1-D25660F17427}"
-	ProjectSection(SolutionItems) = preProject
-		config\IslandSystemProcessor.xml = config\IslandSystemProcessor.xml
-		config\logger.xml = config\logger.xml
-		config\processor.xml = config\processor.xml
-		config\reader1.xml = config\reader1.xml
-		config\reader1filter.xml = config\reader1filter.xml
-		config\reader1VRHReaderFrameWorkSick630TriggerController.xml = config\reader1VRHReaderFrameWorkSick630TriggerController.xml
-		config\readers.xml = config\readers.xml
-	EndProjectSection
-EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VRHReaderFrameworkInstaller", "VRHReaderFrameworkInstaller\VRHReaderFrameworkInstaller.vdproj", "{4D74A36B-8E47-4742-9AB6-54656410342A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRHReaderFrameworkIF2TriggerController", "VRHReaderFrameworkIF2TriggerController\VRHReaderFrameworkIF2TriggerController.csproj", "{97C19241-BBA5-470F-BE55-DFFB47ED82D4}"
@@ -72,6 +61,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Readers", "Readers", "{C88BE7B4-22BB-43D5-A909-F0CABB1CA30F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IslandSystemProcessor", "IslandSystem\IslandSystemProcessor.csproj", "{7314F7E7-5FB1-42B7-AF9D-DD5F788BF330}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configs", "configs", "{3CD98857-49F1-4B63-826C-7D9B0A102B74}"
+	ProjectSection(SolutionItems) = preProject
+		config\IslandSystemProcessor.xml = config\IslandSystemProcessor.xml
+		config\logger.xml = config\logger.xml
+		config\processor.xml = config\processor.xml
+		config\reader1.xml = config\reader1.xml
+		config\reader1filter.xml = config\reader1filter.xml
+		config\readers.xml = config\readers.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -248,6 +247,7 @@ Global
 		{CEA8F1D1-56FD-4E6F-AE58-ADA01FB66601} = {47D3B8BE-8B9F-45A8-A19A-664EB8987E81}
 		{E5EAA93D-8263-43B2-8393-8C3A1A88B8EC} = {47D3B8BE-8B9F-45A8-A19A-664EB8987E81}
 		{F2C5931F-7952-4C8A-8648-AA43802CFA69} = {47D3B8BE-8B9F-45A8-A19A-664EB8987E81}
+		{3CD98857-49F1-4B63-826C-7D9B0A102B74} = {2E68CEED-E2B9-4793-92DE-C0DAB8487212}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79C9D151-C8D5-43F1-B6E9-E5F00B0FD248}

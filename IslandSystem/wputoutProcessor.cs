@@ -28,6 +28,7 @@ namespace IslandSystemProcessor
                     {
                         var epc = VRHReaderFrameworkCommon.Convert.Convert.ConvertHexToAscii(oReadResult.sResult.Substring(4, oReadResult.sResult.Length - 4));
                         epc = epc.TrimEnd('\0');
+						Console.WriteLine(epc);
                         VRHReaderFrameworkCommon.clsLogger.Debug(epc);
 
                         TrackingContract.Response response = null;

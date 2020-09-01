@@ -8,6 +8,7 @@ using Log4Pro.IS.TRM.EventHubContract;
 using Vrh.EventHub.Core;
 using Vrh.EventHub.Protocols.RedisPubSub;
 using VRHReaderFrameworkCommon.Convert;
+using System.Diagnostics;
 
 namespace IslandSystemProcessor
 {
@@ -24,15 +25,30 @@ namespace IslandSystemProcessor
 
             try
             {
-                if (oReadResult != null)
-                {
-                    if (oReadResult.eResultType == VRHReaderFrameworkCommon.eReadResultType.Data || oReadResult.eResultType == VRHReaderFrameworkCommon.eReadResultType.DataEvent)
+				if (oReadResult != null)
+				{
+					if (oReadResult.eResultType == VRHReaderFrameworkCommon.eReadResultType.Event)
+					{
+						var text = string.Empty;
+						foreach (var item in oReadResult.colSubResults)
+						{
+							text += item.ToString();
+							text += " ";
+						}
+
+						Debug.WriteLine(text);
+
+
+					}
+					if (oReadResult.eResultType == VRHReaderFrameworkCommon.eReadResultType.Data || oReadResult.eResultType == VRHReaderFrameworkCommon.eReadResultType.DataEvent)
                     {
-                        var epc = VRHReaderFrameworkCommon.Convert.Convert.ConvertHexToAscii(oReadResult.sResult.Substring(4, oReadResult.sResult.Length - 4));
+						
+						
+						var epc = VRHReaderFrameworkCommon.Convert.Convert.ConvertHexToAscii(oReadResult.sResult.Substring(4, oReadResult.sResult.Length - 4));
                         epc = epc.TrimEnd('\0');
                         VRHReaderFrameworkCommon.clsLogger.Debug(epc);
 
-                        TrackingContract.ReceivingModule.ReceiveResponse response = null;
+                        /*TrackingContract.ReceivingModule.ReceiveResponse response = null;
                         var request = new TrackingContract.ReceivingModule.ReceiveRequest()
                         {
                             ShippingUnitId = epc
@@ -47,7 +63,7 @@ namespace IslandSystemProcessor
                         {
                             VRHReaderFrameworkCommon.clsLogger.Fatal(ex.Message, ex);
                             throw;
-                        }
+                        }*/
                     }
 
                     oReadResult.eAppProcessingStatus = VRHReaderFrameworkCommon.eReadResultProcessingStatus.Processed;

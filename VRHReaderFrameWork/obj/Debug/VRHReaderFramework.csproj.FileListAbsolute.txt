@@ -5,3 +5,10 @@ C:\Users\ahajdu_laptop\Desktop\VRHReaderFrameWork_20190510_Source\VRHReaderFrame
 C:\Users\ahajdu_laptop\Desktop\VRHReaderFrameWork_20190510_Source\VRHReaderFrameWork\VRHReaderFrameWork_20190510\VRHReaderFrameWork\obj\Debug\VRHReaderFramework.csproj.CopyComplete
 C:\Users\ahajdu_laptop\Desktop\VRHReaderFrameWork_20190510_Source\VRHReaderFrameWork\VRHReaderFrameWork_20190510\VRHReaderFrameWork\obj\Debug\VRHReaderFrameWork.exe
 C:\Users\ahajdu_laptop\Desktop\VRHReaderFrameWork_20190510_Source\VRHReaderFrameWork\VRHReaderFrameWork_20190510\VRHReaderFrameWork\obj\Debug\VRHReaderFrameWork.pdb
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameWork.exe.config
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameWork.exe
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameWork.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWork\obj\Debug\VRHReaderFramework.csprojAssemblyReference.cache
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWork\obj\Debug\VRHReaderFramework.csproj.CopyComplete
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWork\obj\Debug\VRHReaderFrameWork.exe
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWork\obj\Debug\VRHReaderFrameWork.pdb

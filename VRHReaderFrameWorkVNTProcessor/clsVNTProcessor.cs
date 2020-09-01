@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -94,7 +95,8 @@ namespace VRHReaderFrameWorkVNTProcessor
 
         private static void UpdatePackageId(string sReaderIP, int iPackageId)
         {
-            try
+			Debug.WriteLine($"UPDATE [Settings] SET [Value]={iPackageId.ToString()} WHERE [WordCode]=Settings.ReadCycle_Counter_{sReaderIP}");
+            /*try
             {
                 SqlConnection oConnection;
                 oConnection = new SqlConnection(SQLConnectString);
@@ -134,12 +136,13 @@ namespace VRHReaderFrameWorkVNTProcessor
             catch (Exception e)
             {
                 VRHReaderFrameworkCommon.clsLogger.Fatal(e.Message, e);
-            }
+            }*/
         }
 
         private static void InsertPackageId(string sReaderIP , int iPackageId)
         {
-            try
+			Debug.WriteLine($"INSERT INTO[Settings]([WordCode],[Value]) VALUES(Settting.ReadCycle_Counter_{sReaderIP}, {iPackageId.ToString()})");
+			/*try
             {
                 SqlConnection oConnection;
                 oConnection = new SqlConnection(SQLConnectString);
@@ -179,13 +182,13 @@ namespace VRHReaderFrameWorkVNTProcessor
             catch (Exception e)
             {
                 VRHReaderFrameworkCommon.clsLogger.Fatal(e.Message, e);
-            }
+            }*/
         }
 
         private static int ReadPackageId(string sReaderIP)
         {
             int iRet = 0;
-            try
+            /*try
             {
                 SqlConnection oConnection;
                 oConnection = new SqlConnection(SQLConnectString);
@@ -245,14 +248,14 @@ namespace VRHReaderFrameWorkVNTProcessor
             {
                 VRHReaderFrameworkCommon.clsLogger.Fatal(e.Message, e);
                 iRet = -4;
-            }
+            }*/
             return iRet;
         }
 
         private static int ReadMezoMeter(string sReaderIP)
         {
             int iRet = 5;
-            try
+            /*try
             {
                 SqlConnection oConnection;
                 oConnection = new SqlConnection(SQLConnectString);
@@ -315,7 +318,7 @@ namespace VRHReaderFrameWorkVNTProcessor
             {
                 VRHReaderFrameworkCommon.clsLogger.Fatal(e.Message, e);
                 iRet = 5;
-            }
+            }*/
             return iRet;
         }
 
@@ -609,7 +612,7 @@ namespace VRHReaderFrameWorkVNTProcessor
                     }
                 }
 
-                ArchiveLogs();
+                //ArchiveLogs();
 
                 System.Threading.Thread.Sleep(1000);
             }

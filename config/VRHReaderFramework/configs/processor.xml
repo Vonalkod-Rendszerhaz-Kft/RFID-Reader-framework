@@ -1,0 +1,10 @@
+<xml>
+	<threads>1</threads>
+
+	<processor>
+		<config>VRHReaderFrameworkVNTProcessor.xml</config>
+		<assembly>VRHReaderFrameWorkVNTProcessor.dll</assembly>
+		<type>VRHReaderFrameWorkVNTProcessor.clsVNTProcessor</type>
+	</processor>
+
+</xml>

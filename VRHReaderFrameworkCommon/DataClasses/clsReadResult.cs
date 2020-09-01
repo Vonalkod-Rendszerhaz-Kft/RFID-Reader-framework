@@ -53,7 +53,12 @@ namespace VRHReaderFrameworkCommon
             return sB.ToString();
         }
 
-    }
+		public override string ToString()
+		{
+			return this.name + " " + this.value;
+		}
+
+	}
 
     public class clsReadResult
     {

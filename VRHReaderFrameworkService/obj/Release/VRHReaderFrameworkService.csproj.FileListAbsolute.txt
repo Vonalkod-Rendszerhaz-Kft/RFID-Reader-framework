@@ -1,0 +1,9 @@
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkService.exe.config
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkService.exe
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkService.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkService\obj\Release\VRHReaderFrameworkService.csprojAssemblyReference.cache
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkService\obj\Release\VRHReaderFrameworkService.ProjectInstaller.resources
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkService\obj\Release\VRHReaderFrameworkService.csproj.GenerateResource.cache
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkService\obj\Release\VRHReaderFrameworkService.csproj.CopyComplete
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkService\obj\Release\VRHReaderFrameworkService.exe
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkService\obj\Release\VRHReaderFrameworkService.pdb

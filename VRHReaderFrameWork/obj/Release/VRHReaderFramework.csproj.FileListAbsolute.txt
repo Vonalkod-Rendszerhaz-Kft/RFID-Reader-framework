@@ -1,0 +1,7 @@
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameWork.exe.config
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameWork.exe
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameWork.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWork\obj\Release\VRHReaderFramework.csprojAssemblyReference.cache
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWork\obj\Release\VRHReaderFramework.csproj.CopyComplete
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWork\obj\Release\VRHReaderFrameWork.exe
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWork\obj\Release\VRHReaderFrameWork.pdb

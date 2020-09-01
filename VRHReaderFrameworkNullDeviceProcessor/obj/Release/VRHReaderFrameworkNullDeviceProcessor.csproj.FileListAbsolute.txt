@@ -1,0 +1,5 @@
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkNullDeviceProcessor.dll
+C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkNullDeviceProcessor.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkNullDeviceProcessor\obj\Release\VRHReaderFrameworkNullDeviceProcessor.csproj.CopyComplete
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkNullDeviceProcessor\obj\Release\VRHReaderFrameworkNullDeviceProcessor.dll
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkNullDeviceProcessor\obj\Release\VRHReaderFrameworkNullDeviceProcessor.pdb

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -616,6 +617,7 @@ namespace VRHReaderFrameworkMain
 
                 try
                 {
+					var text = File.ReadAllLines(basedir + "\\configs\\readers.xml");
                     oXmlDoc.Load(basedir + "\\configs\\readers.xml");
                 }
                 catch(Exception e)
