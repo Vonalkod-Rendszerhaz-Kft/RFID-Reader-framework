@@ -70,6 +70,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configs", "configs", "{3CD9
 		config\reader1.xml = config\reader1.xml
 		config\reader1filter.xml = config\reader1filter.xml
 		config\readers.xml = config\readers.xml
+		config\VRHReaderFrameworkVNTProcessor.xml = config\VRHReaderFrameworkVNTProcessor.xml
 	EndProjectSection
 EndProject
 Global

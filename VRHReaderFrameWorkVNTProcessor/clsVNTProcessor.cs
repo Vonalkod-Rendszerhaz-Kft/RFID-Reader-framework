@@ -29,7 +29,7 @@ namespace VRHReaderFrameWorkVNTProcessor
 
         public List<clsVNTItem> colItems = new List<clsVNTItem>();
 
-        public int iMezoMeter = 5;
+        public int iMezoMeter = 2;
         public int uidPackage = 0;
 
         public bool bMezoA = false;
@@ -362,10 +362,10 @@ namespace VRHReaderFrameWorkVNTProcessor
             bool bWasError = false;
             try
             {
-                SqlConnection oConnection;
+                /*SqlConnection oConnection;
                 oConnection = new SqlConnection(SQLConnectString);
                 oConnection.Open();
-                SqlTransaction oTransaction = oConnection.BeginTransaction();
+                SqlTransaction oTransaction = oConnection.BeginTransaction();*/
 
                 if (oPackage.colItems.Count == 0)
                 {
@@ -379,7 +379,8 @@ namespace VRHReaderFrameWorkVNTProcessor
 
                 foreach (clsVNTItem oItem in oPackage.colItems)
                 {
-                    try
+					Debug.WriteLine($"INSERT INTO [CSEJournals] ([RFID],[Gate],[PostTime],[State],[Message],[UserName],[ReadCycleId],[rssi]) VALUES ({oItem.sId},{oPackage.sReaderIP},{oItem.dtLeolvasas},{oPackage.iIrany},{DBNull.Value},{oPackage.sTargoncaAzon},{oPackage.uidPackage},{oItem.sRSSI})");
+                    /*try
                     {
                         SqlCommand oCommand = new SqlCommand("INSERT INTO [CSEJournals] ([RFID],[Gate],[PostTime],[State],[Message],[UserName],[ReadCycleId],[rssi]) VALUES (@RFID,@Gate,@PostTime,@State,@Message,@UserName,@ReadCycleId,@rssi)", oConnection, oTransaction);
 
@@ -424,10 +425,12 @@ namespace VRHReaderFrameWorkVNTProcessor
                     {
                         VRHReaderFrameworkCommon.clsLogger.Fatal(e.Message, e);
                         bWasError = true;
-                    }
+                    }*/
                 }
 
-                if (bWasError)
+				bRet = true;
+
+                /*if (bWasError)
                 {
                     oTransaction.Rollback();
                 }
@@ -439,7 +442,7 @@ namespace VRHReaderFrameWorkVNTProcessor
 
                 oConnection.Dispose();
                 oConnection.Close();
-                oConnection = null;
+                oConnection = null;*/
 
             }
             catch (Exception e)
@@ -458,15 +461,17 @@ namespace VRHReaderFrameWorkVNTProcessor
             {
                 try
                 {
-                    SqlConnection oConnection;
+                    /*SqlConnection oConnection;
                     oConnection = new SqlConnection(SQLConnectString);
-                    oConnection.Open();
+                    oConnection.Open();*/
 
                     List<clsVNTLog> colSavedLogItems = new List<clsVNTLog>();
 
                     foreach (clsVNTLog oLog in colVNTLog)
                     {
-                        try
+						Debug.WriteLine($"INSERT INTO [RFIDLogs] ([Gate],[EventTime],[ErrorCode],[ErrorMessage],[RfidS]) VALUES ({oLog.sReaderIP},{oLog.dtMessage},{oLog.iErrorCode},{oLog.sErrorMessage},{oLog.RfidS})");
+						colSavedLogItems.Add(oLog);
+						/*try
                         {
                             SqlCommand oCommand = new SqlCommand("INSERT INTO [RFIDLogs] ([Gate],[EventTime],[ErrorCode],[ErrorMessage],[RfidS]) VALUES (@Gate,@EventTime,@ErrorCode,@ErrorMessage,@RfidS)", oConnection);
 
@@ -500,17 +505,17 @@ namespace VRHReaderFrameWorkVNTProcessor
                         catch (Exception e)
                         {
                             VRHReaderFrameworkCommon.clsLogger.Fatal(e.Message, e);
-                        }
-                    }
+                        }*/
+					}
 
                     foreach (clsVNTLog oLog in colSavedLogItems)
                     {
                         colVNTLog.Remove(oLog);
                     }
 
-                    oConnection.Dispose();
+                    /*oConnection.Dispose();
                     oConnection.Close();
-                    oConnection = null;
+                    oConnection = null;*/
 
                 }
                 catch (Exception e)
@@ -612,7 +617,7 @@ namespace VRHReaderFrameWorkVNTProcessor
                     }
                 }
 
-                //ArchiveLogs();
+                ArchiveLogs();
 
                 System.Threading.Thread.Sleep(1000);
             }

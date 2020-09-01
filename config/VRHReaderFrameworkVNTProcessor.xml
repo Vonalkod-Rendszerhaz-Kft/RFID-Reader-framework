@@ -1,0 +1,17 @@
+<xml>
+	<!-- <SQLConnectString>data source=DEVELOPMENT\SQLSERVER2014;initial catalog=VNT_RFID_Pilot;persist security info=True;user id=vnt;password=vnt;MultipleActiveResultSets=True;App=EntityFramework</SQLConnectString> -->
+<SQLConnectString>data source=.\PLASTIMAT2;initial catalog=VNT_RFID_Pilot;persist security info=True;user id=sa;password=vrh;MultipleActiveResultSets=True;App=EntityFramework</SQLConnectString>
+	<iDataOffset>4</iDataOffset>
+
+        <iPackageTimeoutSec>60</iPackageTimeoutSec>
+
+        <sTargoncaElotag>VRT</sTargoncaElotag>
+
+        <sCsEElotag>VRC</sCsEElotag>
+
+        <sRSSIValueName>rssi</sRSSIValueName>
+
+        <sANTValueName>ant</sANTValueName>
+
+        <iEventABTimeLimit>5</iEventABTimeLimit>
+</xml>
