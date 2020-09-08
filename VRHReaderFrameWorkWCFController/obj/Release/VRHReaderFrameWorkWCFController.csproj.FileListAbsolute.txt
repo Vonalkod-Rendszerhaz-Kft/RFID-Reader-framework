@@ -4,3 +4,4 @@ C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFContro
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.csproj.CopyComplete
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.dll
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.csproj.CoreCompileInputs.cache

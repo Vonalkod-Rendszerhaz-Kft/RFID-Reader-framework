@@ -3,3 +3,4 @@ C:\Feladatok\VRHReaderFramework\VRHReaderFrameWorkVNTProcessor.pdb
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkVNTProcessor\obj\Release\VRHReaderFrameWorkVNTProcessor.csproj.CopyComplete
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkVNTProcessor\obj\Release\VRHReaderFrameWorkVNTProcessor.dll
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkVNTProcessor\obj\Release\VRHReaderFrameWorkVNTProcessor.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkVNTProcessor\obj\Release\VRHReaderFrameWorkVNTProcessor.csproj.CoreCompileInputs.cache

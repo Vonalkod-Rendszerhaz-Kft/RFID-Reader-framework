@@ -5,3 +5,4 @@ C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkWCFInterf
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkWCFInterface\obj\Release\VRHReaderFrameworkWCFInterface.csproj.CopyComplete
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkWCFInterface\obj\Release\VRHReaderFrameworkWCFInterface.dll
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkWCFInterface\obj\Release\VRHReaderFrameworkWCFInterface.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkWCFInterface\obj\Release\VRHReaderFrameworkWCFInterface.csproj.CoreCompileInputs.cache

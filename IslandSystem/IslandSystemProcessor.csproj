@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsISProcessor.cs" />
     <Compile Include="WPUTOUTProcessor.cs" />
     <Compile Include="WRCVProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

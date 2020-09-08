@@ -4,3 +4,4 @@ C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkZebraFX96
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkZebraFX9600Api\obj\Release\VRHReaderFrameworkZebraFX9600Api.csproj.CopyComplete
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkZebraFX9600Api\obj\Release\VRHReaderFrameworkZebraFX9600Api.dll
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkZebraFX9600Api\obj\Release\VRHReaderFrameworkZebraFX9600Api.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkZebraFX9600Api\obj\Release\VRHReaderFrameworkZebraFX9600Api.csproj.CoreCompileInputs.cache

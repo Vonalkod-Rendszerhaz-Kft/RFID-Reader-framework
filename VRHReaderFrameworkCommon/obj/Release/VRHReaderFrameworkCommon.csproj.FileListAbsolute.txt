@@ -4,3 +4,4 @@ C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkCommon\ob
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkCommon\obj\Release\VRHReaderFrameworkCommon.csproj.CopyComplete
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkCommon\obj\Release\VRHReaderFrameworkCommon.dll
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkCommon\obj\Release\VRHReaderFrameworkCommon.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkCommon\obj\Release\VRHReaderFrameworkCommon.csproj.CoreCompileInputs.cache

@@ -27,3 +27,4 @@ C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\IslandSystem\obj\Release\Is
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\IslandSystem\obj\Release\IslandSystemProcessor.csproj.CopyComplete
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\IslandSystem\obj\Release\IslandSystemProcessor.dll
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\IslandSystem\obj\Release\IslandSystemProcessor.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\IslandSystem\obj\Release\IslandSystemProcessor.csproj.CoreCompileInputs.cache

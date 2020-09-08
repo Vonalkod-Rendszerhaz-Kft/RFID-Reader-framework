@@ -4,3 +4,4 @@ C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkTimeBased
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkTimeBasedFilter\obj\Release\VRHReaderFrameworkTimeBasedFilter.csproj.CopyComplete
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkTimeBasedFilter\obj\Release\VRHReaderFrameworkTimeBasedFilter.dll
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkTimeBasedFilter\obj\Release\VRHReaderFrameworkTimeBasedFilter.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkTimeBasedFilter\obj\Release\VRHReaderFrameworkTimeBasedFilter.csproj.CoreCompileInputs.cache

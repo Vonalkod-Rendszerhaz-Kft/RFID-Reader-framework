@@ -3,3 +3,4 @@ C:\Feladatok\VRHReaderFramework\VRHReaderFrameWorkSick630.pdb
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkSick630\obj\Release\VRHReaderFrameWorkSick630.csproj.CopyComplete
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkSick630\obj\Release\VRHReaderFrameWorkSick630.dll
 C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkSick630\obj\Release\VRHReaderFrameWorkSick630.pdb
+C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkSick630\obj\Release\VRHReaderFrameWorkSick630.csproj.CoreCompileInputs.cache
