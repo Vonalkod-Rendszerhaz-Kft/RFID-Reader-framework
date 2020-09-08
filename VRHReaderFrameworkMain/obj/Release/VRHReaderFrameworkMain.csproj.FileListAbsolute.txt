@@ -1,7 +1,0 @@
-C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkMain.dll
-C:\Feladatok\VRHReaderFramework\VRHReaderFrameworkMain.pdb
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkMain\obj\Release\VRHReaderFrameworkMain.csprojAssemblyReference.cache
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkMain\obj\Release\VRHReaderFrameworkMain.csproj.CopyComplete
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkMain\obj\Release\VRHReaderFrameworkMain.dll
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkMain\obj\Release\VRHReaderFrameworkMain.pdb
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameworkMain\obj\Release\VRHReaderFrameworkMain.csproj.CoreCompileInputs.cache

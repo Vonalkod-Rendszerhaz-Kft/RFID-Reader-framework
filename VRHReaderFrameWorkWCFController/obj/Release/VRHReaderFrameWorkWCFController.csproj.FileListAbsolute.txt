@@ -1,7 +1,0 @@
-C:\Feladatok\VRHReaderFramework\VRHReaderFrameWorkWCFController.dll
-C:\Feladatok\VRHReaderFramework\VRHReaderFrameWorkWCFController.pdb
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.csprojAssemblyReference.cache
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.csproj.CopyComplete
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.dll
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.pdb
-C:\Feladatok\Belso\SzigetRendszer\VRHReaderFrameWork\VRHReaderFrameWorkWCFController\obj\Release\VRHReaderFrameWorkWCFController.csproj.CoreCompileInputs.cache
